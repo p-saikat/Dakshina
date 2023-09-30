@@ -7,7 +7,7 @@ export const signup = celebrate({
   body: Joi.object({
     first_name: Joi.string().required(),
     last_name: Joi.string().required(),
-    dob: JoiDate.date().format("DD-MM-YYYY").raw().required(),
+    dob: JoiDate.date().format("DD-MM-YYYY").required(),
     email: Joi.string()
       .required()
       .regex(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/),
