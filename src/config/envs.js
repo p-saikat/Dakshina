@@ -4,7 +4,9 @@ config();
 export const envs = {
   port: Number(process.env.PORT) || 5001,
 
-  devDB: {},
+  devDB: {
+    uri: process.env.MONGO_URI,
+  },
 
   apiKey: process.env.API_KEY,
 
