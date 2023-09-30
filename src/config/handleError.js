@@ -16,7 +16,7 @@ export const handleError = (err, req, res, next) => {
     res.locals.error = res.__(message);
 
     res.status(status).send({
-      success: true,
+      success: false,
       message: res.__(message),
     });
   }

@@ -1,4 +1,5 @@
 {
 	"forbidden": "Forbidden",
-	"serverError": "Server Error"
+	"serverError": "Server Error",
+	"badCredentials": "badCredentials"
 }

@@ -1,7 +1,6 @@
 import { StatusError } from "../../../config/StatusError.js";
 import { Users } from "../../../services/index.js";
 import bcrypt from "bcrypt";
-import dayjs from "dayjs";
 
 /**
  * Admin Signup Service
@@ -29,8 +28,6 @@ export const signup = async (req, res, next) => {
       role: "admin",
       password: encryptPassword,
     });
-
-    console.log(insertLastID);
 
     if (insertLastID) {
       res.ok({
