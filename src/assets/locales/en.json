@@ -1,5 +1,6 @@
 {
 	"forbidden": "Forbidden",
 	"serverError": "Server Error",
-	"badCredentials": "badCredentials"
+	"badCredentials": "badCredentials",
+	"userAlreadyRegistered": "User is already registerd in the system!"
 }

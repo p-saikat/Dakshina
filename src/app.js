@@ -5,9 +5,10 @@ import i18n from "i18n";
 import { errors } from "celebrate";
 import cors from "cors";
 import bearerToken from "express-bearer-token";
+import morgan from "morgan";
 
 import { envs, StatusSuccess, handleError, dbConnect } from "./config/index.js";
-import { v1AdminRouter } from "./routes/index.js";
+import { v1AdminRouter, v1TeacherRouter } from "./routes/index.js";
 import { verifyApiKey } from "./middleware/index.js";
 
 const app = express();
@@ -31,6 +32,11 @@ app.use(i18n.init);
 app.use(cors());
 
 /**
+ * Logger
+ */
+app.use(morgan("tiny"));
+
+/**
  * All express middlewares
  */
 app.use(express.json());
@@ -47,6 +53,11 @@ dbConnect();
  * Exposing admin v1 endpoints
  */
 app.use("/api/v1/admin", verifyApiKey, v1AdminRouter);
+
+/**
+ * Exposing teacher v1 endpoints
+ */
+app.use("/api/v1/teacher", verifyApiKey, v1TeacherRouter);
 
 /**
  * Endpoint to check server status
