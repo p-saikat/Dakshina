@@ -7,7 +7,7 @@ export const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
-    const user = await Users.getDataByEmail(email);
+    const user = await Users.getDataByEmailRole(email, "admin");
     if (!user) throw StatusError.badRequest("badCredentials");
 
     const checkPassword = await bcrypt.compare(password, user.password);

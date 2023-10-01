@@ -16,6 +16,7 @@ export const verifyJwtToken = async (req, res, next) => {
     req.user = {
       userId: user._id,
       email: user.email,
+      role: user.role,
     };
 
     next();

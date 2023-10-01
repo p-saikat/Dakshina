@@ -15,6 +15,9 @@ export const signup = async (req, res, next) => {
 
     const { first_name, last_name, dob, email, gender, phone1, calling_code1, password } = reqBody;
 
+    const user = await Users.getDataByEmailRole(email, "admin");
+    if (user) throw StatusError.badRequest("userAlreadyRegistered");
+
     const encryptPassword = await bcrypt.hash(password, 10);
 
     const insertLastID = await Users.create({

@@ -25,7 +25,7 @@ export const signup = async (req, res, next) => {
       school_teacher,
     } = reqBody;
 
-    const user = await Users.getDataByEmail(email);
+    const user = await Users.getDataByEmailRole(email, "teacher");
     if (user) throw StatusError.badRequest("userAlreadyRegistered");
 
     const encryptPassword = await bcrypt.hash(password, 10);
